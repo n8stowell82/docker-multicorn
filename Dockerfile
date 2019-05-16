@@ -1,6 +1,6 @@
-FROM postgres:9.4
+FROM postgres:11.3
 
-RUN apt-get update && apt-get install -y build-essential python-dev python-pip postgresql-server-dev-9.4
+RUN apt-get update && apt-get install -y build-essential python-dev python-pip postgresql-server-dev-11.3
 RUN apt-get clean
 RUN pip install pgxnclient
 RUN pgxn install multicorn
@@ -13,7 +13,7 @@ RUN echo 'export PATH=/opt/conda/bin:$PATH' > /etc/profile.d/conda.sh && \
     /opt/conda/bin/conda install --yes conda==3.14.1
 
 ENV PATH /opt/conda/bin:$PATH
-ENV PYTHONPATH /usr/local/lib/python2.7/dist-packages/multicorn-1.2.3-py2.7-linux-x86_64.egg:$PYTHONPATH
+ENV PYTHONPATH /usr/local/lib/python2.7/dist-packages/multicorn-1.3.2-py2.7-linux-x86_64.egg:$PYTHONPATH
 VOLUME /src
 
 COPY docker-entrypoint.sh /
