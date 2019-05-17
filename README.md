@@ -1,10 +1,15 @@
 # Docker container for Multicorn
 
-Docker container for multicorn based on Postgres 9.4 container with conda for python libraries.
+Docker container for multicorn based on Postgres 10.8 container.
 
-`docker pull danielfrg/multicorn`
+to build the container run:
+`docker build -t medisharemulticorn .`
 
-`docker run -p 5432:5432 -v $(pwd):/src danielfrg/multicorn`
+after building you can simply run this command to start the container
+`sh start.sh`
+
+remember you may have to make the file runnable by running this command:
+`chmod u+x start.sh`
 
 Python libraries in `/src` will be installed.
 
